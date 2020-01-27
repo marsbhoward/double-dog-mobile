@@ -184,9 +184,7 @@ function showGameDares(){
  		</span>
  	`
 	}
-	showDare.innerHTML= `<br><br><div class="ui raised segment" id="past_dares">
- 		<a class="ui red ribbon label">All Past Dares</a>
- 		<br><br>`+pastDares +`</div>`;
+	showDare.innerHTML= `<div id ="info"> <h1>All Past Dares</h1><br>`+pastDares +`</div>`;
 }
 
 function showPlayersDares(){
@@ -201,14 +199,12 @@ function showPlayersDares(){
  		</span>
  	`
 	}
-	showDare.innerHTML= `<br><br><div class="ui raised segment" id="scores">
- 		<a class="ui red ribbon label">Your Past Dares</a>
- 		<br><br>`+playerDares +`</div>`
+ 	showDare.innerHTML= `<div id ="info"> <h1>Your Past Dares</h1><br>`+playerDares +`</div>`;
 }
 
 function showRules(){
-	showDare.innerHTML= `<br><br><div class="ui raised segment" id="past_dares">
- 		<a class="ui red ribbon label">Rules</a>
+
+	showDare.innerHTML= `<div id ="info"> <h1>Rules</h1>
  		<br><br>Welcome to Double Dog Dare <br><br> the rules are simple first one to 10 points wins! The turns go in order from the first person added to the last. 
  		When it is your turn you have the choice of: <br><br>  1. Doing the dare and gaining the points (if your dare involves another person that does not consent see note). <br><br> 2. Taking the penalty shot(s)
  		allowing you to pass the dare without losing any points. <br><br> 3. Passing the dare avoiding the penalty shot(s) but also losing the losing the 
@@ -244,9 +240,7 @@ function getScoreboard(){
  		</span>
  	`
 	}
-	showDare.innerHTML= `<br><br><div class="ui raised segment" id="scores">
- 		<a class="ui red ribbon label">Scoreboard</a>
- 		<br><br>`+theScore +`</div>`
+	showDare.innerHTML= `<div id ="info"> <h1>Scoreboard</h1>`+theScore +`</div>`
 
 }
 
