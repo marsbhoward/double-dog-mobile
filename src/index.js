@@ -208,7 +208,7 @@ function showRules(){
  		Welcome to Double Dog Dare <br><br> The rules are simple first one to 10 points wins! The turns go in order from the first person added to the last. 
  		When it is your turn you have the choice of: <br><br>  1.(PLAY) Doing the dare and gaining the points (if your dare involves another person that does not consent see note). <br><br> 2.(SHOT) Taking the penalty shot(s)
  		allowing you to pass the dare without losing any points. <br><br> 3.(PASS) Passing the dare avoiding the penalty shot(s) but also losing the losing the 
- 		same amount of points you would have gained(only if you have enough points to do so).  <br><br> **note** If you choose to not participate in any dare that is not your own you must take a shot and the the turn player may gain the points <br>
+ 		same amount of points you would have gained(only if you have enough points to do so).  <br><br> **note** If you choose to not participate in any dare that is not your own you must take a shot and the the turn player may gain the points <br><br>
  		</div>`;
 }
 
