@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html id=all lang="en">
+<h1 id="message" hidden="true">This game is designed for use with a full screen computer browser. To enjoy Double Dog Dare please open this page in that manner.<br><br> We dare you  ;)</h1>
+  <head>
+    <meta charset="utf-8" />
+    <title>Double Dog</title>
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+   </head>
+  <body>
+    <div id="root"></div>
+<div id="window" class="ui bottom attached segment pushable">
+
+
+
+
+      <div id="pusher" class="pusher">
+
+        <div id="left-container">
+            <div class="ui green message floated segment" id ="turn-player">Turn Player: </div>
+            <div class="ui green message floated segment" id ="game-score-div">Score: <br><span id="game-score"></span></div>
+            <div class="ui green message floated segment" id ="game-score-div">Shots: <br><span id="shots-count"></span></div>
+            <div class="ui" id="game-container">
+    
+
+              <h2 id="dares"> Welcome To Double Dog Dare <br><br>
+              Enter in all the players one at a time in the box, when finished hit the play button below.
+              <br>
+              <br>
+              <form autocomplete="off" id="add-player-form" class="" action="index.html" method="post">
+              <input id="add-player-field" type="text" name="" value="" placeholder="Add a Player">
+              <br><br>
+              <input type="submit">
+              </form>
+              <br>
+              </h2> 
+
+            </div>
+
+
+
+            <button id="play-button" class="ui button teal" disabled="true" ><i class="icon play"></i>PLAY</button>
+            <button id="shot-button" class="ui button yellow" disabled="true"><i class="beer icon"></i>SHOT</button>
+            <button id="pass-button" class="ui button orange" disabled="true"><i class="icon stop"></i>PASS</button>
+            <br>
+            <div id="word-submit-confirm"></div>    
+        </div>
+        </div>
+      </div>
+    <div id="footer">      
+      <div id="section">   
+        <a id="game-dares" class="item">
+          <i class="angle double left icon"></i>
+        </a>
+      </div>      
+      <div id="section">   
+        <a id="player-dares" class="item">
+          <i class="angle left icon"></i>
+        </a>
+      </div>
+      <div id="section">   
+        <a id="home" disabled="true" class="item">
+          <i class="beer icon"></i>
+        </a>
+      </div>
+      <div id="section">   
+        <a id="scoreboard" disabled="true" class="item">
+          <i class="table icon"></i>
+        </a>
+      </div>
+      <div id="section">   
+        <a id="rules" class="item">
+          <i class="info icon"></i>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
