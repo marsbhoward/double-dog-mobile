@@ -22,7 +22,7 @@ const addPlayerForm = document.getElementById("add-player-form")
 const playerNameField = document.getElementById("add-player-field")
 
 //change to implient timer and coin flip
-const leftMenu = document.getElementById("left-menu")
+const buttons = document.getElementById("buttons")
 const showDare = document.getElementById("dares");
 
 const playerDareButton = document.getElementById("player-dares");
@@ -281,7 +281,7 @@ function doneDare(){
 }
 
 function shotDare(){
-	if(leftMenu.childNodes.length>13){
+	if(buttons.childNodes.length>5){
 		 removeEvent()
 		 playButton.disabled = false
 	}
@@ -308,7 +308,7 @@ function passDare(){
 	 	generateDare(listOfDares)
 		createTurn()
 	}
-	else if (leftMenu.childNodes.length>13){
+	else if (buttons.childNodes.length>5){
 		 removeEvent()
 		 playButton.disabled = false
 	}
@@ -446,18 +446,18 @@ function generatePlayer(){
 }
 
 function generateEvent(){
-	var node = document.createElement("A");
-	node.setAttribute("id", "event");
-	node.setAttribute("class", "item");
+	var node = document.createElement("button");
+	node.setAttribute("id", "event-button");
+	node.setAttribute("class", "ui button gray");
 	var textnode = document.createTextNode("");
 	node.appendChild(textnode);
-	leftMenu.appendChild(node)
+	buttons.appendChild(node)
 
-	eventSpace = document.getElementById("event");
+	eventSpace = document.getElementById("event-button");
 }
 
 function removeEvent(){
-	leftMenu.removeChild(leftMenu.childNodes[13]); 
+	buttons.removeChild(buttons.childNodes[5]); 
 }
 
 function removelistener(){
@@ -571,11 +571,7 @@ function generateDare()
 	        }
 		}, 1000);
 	}
-//        if (timer == 3)
-//	        	display = (Math.floor(Math.random() * 2) == 0) ? 'heads' : 'tails';
-//	     	else if (--timer == 0) {
-//    			removeEvent()
-//    		}
+
 //creates archive for all players of current game
 	function dareArchive(currentDare) {
 		previousDares.push(currentDare);

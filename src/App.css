@@ -57,6 +57,14 @@
 
 }
 
+#event-button {
+  float: left;
+  margin-left: 5%;
+  width: 92.6%;
+  height: 100%;
+  align-self: center;
+}
+
 #game-container {
   background: #ebebeb;
   margin: 1% 1% 1% 2%;
