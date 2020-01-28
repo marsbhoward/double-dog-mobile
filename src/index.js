@@ -448,8 +448,10 @@ function generatePlayer(){
 
 function generateEvent(){
 	var node = document.createElement("button");
+	var node2 = document.createElement("I")
 	node.setAttribute("id", "event-button");
 	node.setAttribute("class", "ui button gray");
+
 	var textnode = document.createTextNode("");
 	node.appendChild(textnode);
 	buttons.appendChild(node)
@@ -517,10 +519,11 @@ function generateDare()
 				}
 			}
 			dareText = dareText.replace("[RandomPlayer]", selectedPlayer.name);
+			currentDare.text= dareText
 		}
 		
 	 	
-		showDare.innerHTML = dareText +
+		showDare.innerHTML = currentDare.text +
 		`<br><br><span>points: </span>`+ currentDare.points + `<br> <span>penalty shot(s): </span>`+ currentDare.shots;
 		dareArchive(currentDare);
 	
@@ -545,9 +548,11 @@ function generateDare()
 
 	        display.textContent = minutes + ":" + seconds;
 
-	        if (--timer == -1) {
-	            removeEvent()
-	            playButton.disabled = false
+	        if (--timer <= -1) {
+				if (buttons.childNodes.length>=7){
+		 			removeEvent()
+		 			playButton.disabled = false
+				}
 	        }
 		}, 1000);
 	}
@@ -563,9 +568,11 @@ function generateDare()
 
 	        
 
-	        if (--timer == -1) {
-	            removeEvent()
-	            playButton.disabled = false
+	        if (--timer <= -1) {
+				if (buttons.childNodes.length>=7){
+		 			removeEvent()
+		 			playButton.disabled = false
+				}
 	        }
 	        else if (timer == 3){
 	        	display.textContent = display = (Math.floor(Math.random() * 2) == 0) ? 'heads' : 'tails';
