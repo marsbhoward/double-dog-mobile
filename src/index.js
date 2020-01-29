@@ -244,6 +244,20 @@ function getScoreboard(){
 	showDare.innerHTML= `<div id ="info"> <h1>Scoreboard</h1>`+theScore +`</div>`
 
 }
+function defaultFooter(){
+	allDaresButton.firstElementChild.classList.value = "arrow alternate circle left outline icon"
+	playerDareButton.firstElementChild.classList.value = "user circle outline icon"
+	homeButton.firstElementChild.classList.value = "circle outline icon"
+	scoreboard.firstElementChild.classList.value = "list alternate outline icon"
+	ruleButton.firstElementChild.classList.value = "clipboard outline icon"	
+}
+
+function clickFooter(button){
+	defaultFooter()
+	button.firstElementChild.classList.value = button.firstElementChild.classList.value.replace('outline',''); 
+	console.log(button.firstElementChild.classList.value)
+}
+
 
 function getHome(){
 	showDare.innerHTML = currentDare.text +
@@ -271,12 +285,13 @@ function doneDare(){
 		passButton.disabled=false
 		// buttons for scoreboard, rules, player dares, and game dares
 	
-		playerDareButton.addEventListener("click", showPlayersDares,false);
-		allDaresButton.addEventListener("click", showGameDares,false);
-		ruleButton.addEventListener("click", showRules,false);
-		scoreboard.addEventListener("click", getScoreboard,false);
-		homeButton.addEventListener("click", getHome,false)
+		playerDareButton.addEventListener("click", function(){showPlayersDares();clickFooter(playerDareButton)},false);
+		allDaresButton.addEventListener("click", function(){showGameDares();clickFooter(allDaresButton)},false);
+		ruleButton.addEventListener("click", function(){showRules();clickFooter(ruleButton)},false);
+		scoreboard.addEventListener("click", function(){getScoreboard();clickFooter(scoreboard)},false);
+		homeButton.addEventListener("click", function(){getHome();clickFooter(homeButton)},false);
 		TurnPlayer();
+		clickFooter(homeButton)
 	}
 		
 }
@@ -333,7 +348,7 @@ function TurnPlayer(){
 	currentId ++
 	currentPlayer = currentPlayers[currentId];
 
-	turnPlayer.innerHTML = "Turn Player: "+ currentPlayer.name;
+	turnPlayer.innerHTML = "Turn Player: <br>"+ currentPlayer.name;
 	playerScore.innerHTML = currentPlayer.score;
 	playerShots.innerHTML = currentPlayer.shots;
 }

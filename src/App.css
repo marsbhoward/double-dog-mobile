@@ -7,9 +7,14 @@
   font-size: 150%;
 }
 
+#add-player-field{
+text-align: center;
+}
+
 #section{
   float: left;
-  width: 20%;}
+  width: 20%;
+}
 
 #turn-player{
   float: left;
@@ -152,7 +157,8 @@
 }
 
 #footer {
-  background-color: lightgrey;
+  background-color: white;
+  border: .5px solid lightgray;
   overflow: hidden;
   position: fixed;
   display: block;
