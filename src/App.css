@@ -86,9 +86,12 @@ text-align: center;
 
 #dares{
   text-align: center;
+  text-a
   min-width: 300px;
   height: 100%;
   overflow: auto;
+  vertical-align: middle;
+
 }
 
 
