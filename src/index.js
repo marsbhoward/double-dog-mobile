@@ -305,7 +305,10 @@ function shotDare(){
 		currentPlayer.addShot()
 		getScoreboard()
 		TurnPlayer();
+		
+
 	}
+	clickFooter(homeButton)
 }
 
 function passDare(){
@@ -337,6 +340,7 @@ function passDare(){
 	 	generateDare(listOfDares)
 		createTurn()
 	}
+	clickFooter(homeButton)
 }
 
 //cycles through the list of players

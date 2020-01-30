@@ -85,13 +85,15 @@ text-align: center;
 }
 
 #dares{
+  flex: 1;
   text-align: center;
-  text-a
   min-width: 300px;
   height: 100%;
+  max-height: 100%;
   overflow: auto;
   vertical-align: middle;
-
+  display: inherit;
+  align-items: center;
 }
 
 
@@ -183,6 +185,8 @@ text-align: center;
 
 #info{
   background-color: white;
-  height: 100%;
+  text-align: center;
+  min-width: 300px;
+  min-height: 100%;
   overflow: auto;
 }
