@@ -99,10 +99,14 @@ gameTurns(playButton,doneDare);
 function gameWon(){
 	
 	if (currentPlayer.score >= winScore){
-		alert("Game OVER\n" + currentPlayer.name +" has won the game!!\n refresh the page to start a new game")
+		alert("GAME OVER\n" + currentPlayer.name +" has won the game!!\n you can review the past dares and scoreboard \nrefresh the page to start a new game")
 		playButton.disabled = true
 		shotButton.disabled = true
 		passButton.disabled = true
+
+		if(buttons.childNodes.length>=8){
+			removeEvent()
+		}	
 	}
 }
 
@@ -254,8 +258,7 @@ function defaultFooter(){
 
 function clickFooter(button){
 	defaultFooter()
-	button.firstElementChild.classList.value = button.firstElementChild.classList.value.replace('outline',''); 
-	console.log(button.firstElementChild.classList.value)
+	button.firstElementChild.classList.value = button.firstElementChild.classList.value.replace('outline',''); 	
 }
 
 
@@ -297,17 +300,15 @@ function doneDare(){
 }
 
 function shotDare(){
-	if(buttons.childNodes.length>=7){
+	if(buttons.childNodes.length>=8){
 		 removeEvent()
+		 console.log('shot dare');
 		 playButton.disabled = false
 	}
-	else{
-		currentPlayer.addShot()
-		getScoreboard()
-		TurnPlayer();
-		
 
-	}
+	currentPlayer.addShot()
+	getScoreboard()
+	TurnPlayer();
 	clickFooter(homeButton)
 }
 
@@ -327,8 +328,9 @@ function passDare(){
 	 	generateDare(listOfDares)
 		createTurn()
 	}
-	else if (buttons.childNodes.length>=7){
+	else if (buttons.childNodes.length>=8){
 		 removeEvent()
+		 console.log('pass dare');
 		 playButton.disabled = false
 	}
 	else{
@@ -479,7 +481,9 @@ function generateEvent(){
 }
 
 function removeEvent(){
-	buttons.removeChild(buttons.childNodes[6]); 
+	console.log(buttons.childNodes[6])
+	buttons.removeChild(buttons.childNodes[7]); 
+	console.log('triggered');
 }
 
 function removelistener(){
@@ -499,19 +503,23 @@ function generateDare()
 		console.log("dare recently occured, generating new one");
 		generateDare();
 	}
+	else if (currentDare.text.includes("x is the") && currentPlayer.shots < 3){
+		console.log("new dare was chosen, shots too low")
+		generateDare();	
+	}
 	else{
 		if (currentDare.text.includes("15 seconds")){
 			playButton.disabled = true;
     		generateEvent();
     		eventSpace.textContent = "Start Timer";
-    		eventSpace.addEventListener("click", function(){startTimer(15, eventSpace)},false);
+    		eventSpace.addEventListener("click", function(){startTimer(14, eventSpace)},false);
     		removelistener();
 		}
 		else if (currentDare.text.includes("a minute")){
 			playButton.disabled = true;
     		generateEvent();
     		eventSpace.textContent = "Start Timer";
-    		eventSpace.addEventListener("click", function(){startTimer(60, eventSpace)},false);
+    		eventSpace.addEventListener("click", function(){startTimer(59, eventSpace)},false);
     		removelistener();
 		}
 		else if (currentDare.text.includes("Flip a coin")) {
@@ -522,11 +530,6 @@ function generateDare()
     		removelistener();
 
 		}	
-		else if (currentDare.text.includes("x is the") && currentPlayer.shots < 3){
-	
-				console.log("new dare was chosen")
-				generateDare();	
-		}
 		if (dareText.includes("[RandomPlayer]")){
 			randomPlayer=  generatePlayer();
 			selectedPlayer = currentPlayers[randomPlayer];
@@ -557,7 +560,8 @@ function generateDare()
  }
 
 	 function startTimer(duration, display) {
-	    let timer = duration, minutes, seconds;
+	    var timer = duration, minutes, seconds;
+	    console.log('start timer '+ timer)
 	    setInterval(function () {
 	        minutes = parseInt(timer / 60, 10);
 	        seconds = parseInt(timer % 60, 10);
@@ -570,14 +574,17 @@ function generateDare()
 	        if (--timer <= -1) {
 				if (buttons.childNodes.length>=7){
 		 			removeEvent()
+		 			console.log('timer ' +timer);
 		 			playButton.disabled = false
+		 			timer = 10000;
 				}
 	        }
 		}, 1000);
 	}
 
 	 function coinFlip(duration, display) {
-	    let timer = duration, minutes, seconds;
+	    var timer = duration, minutes, seconds;
+	    console.log('start timer '+ timer)
 	    setInterval(function () {
 	        minutes = parseInt(timer / 60, 10);
 	        seconds = parseInt(timer % 60, 10);
@@ -590,7 +597,9 @@ function generateDare()
 	        if (--timer <= -1) {
 				if (buttons.childNodes.length>=7){
 		 			removeEvent()
+		 			console.log('flip ' +timer);
 		 			playButton.disabled = false
+		 			timer = 10000;
 				}
 	        }
 	        else if (timer == 3){
